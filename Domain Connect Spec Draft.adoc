@@ -6,6 +6,7 @@
 :revnumber: 41
 :revdate: 13-02-2018
 :revremark: DRAFT 
+:apply-image-size:
 
 = Domain Connect 2.0
 
@@ -195,13 +196,13 @@ and synchronous change to DNS.
 The user would first enter their domain name at the Service Provider
 website.
 
-image:.//media/image1.png[image,width=500,height=325]
+image::.//media/image1.png[image,width=500,height=325]
 
 After the Service Provider determines the DNS Provider, the Service
 Provider might display a link to the user indicating that they can
 "Connect their Domain" to the service.
 
-image:.//media/image2.png[image,width=502,height=325]
+image::.//media/image2.png[image,width=502,height=325]
 
 After clicking the link, the user is directed to a browser window on the
 DNS Provider’s site. This is typically done in another tab or in a new
@@ -213,7 +214,7 @@ needed to configure the service.
 Once at the DNS Provider site, the user would be asked to authenticate
 if necessary.
 
-image:.//media/image3.png[image,width=495,height=318]
+image::.//media/image3.png[image,width=495,height=318]
 
 After authenticating at the DNS Provider, the DNS Provider would verify
 the domain name is owned by the user. The DNS Provider would also verify
@@ -222,7 +223,7 @@ consent for making the change to DNS. The DNS Provider could also warn
 the user of services that would be disabled by applying this change to
 DNS.
 
-image:.//media/image4.png[image,width=489,height=312]
+image::.//media/image4.png[image,width=489,height=312]
 
 Assuming the user grants this consent, the DNS changes would be applied.
 
