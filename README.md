@@ -1,4 +1,4 @@
 # Domain Connect Specification
 
-[Asciidoc format]("Domain Connect Spec Draft.adoc")
-[PDF format]("Domain Connect Spec Draft.pdf")
+* [Asciidoc format](https://github.com/pawel-kow/spec/blob/pkowalik/test_markdown/Domain%20Connect%20Spec%20Draft.adoc)
+* [PDF format](https://github.com/pawel-kow/spec/blob/pkowalik/test_markdown/Domain%20Connect%20Spec%20Draft.pdf)
