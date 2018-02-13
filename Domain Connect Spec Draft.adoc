@@ -1658,7 +1658,7 @@ DNS Provider to determine if they will support.
 			"groupId" : "verification",
 			"type": "TXT",
 			"host": "example",
-			"data: "%var5%",
+			"data": "%var5%",
 			"ttl": "%var2%"
 		}
 	]
