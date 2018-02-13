@@ -1,7 +1,17 @@
+:toc: macro
+:sectnums:
+:revnumber: 40 
+:revdate: 6-02-2018
+:revremark: DRAFT 
 [cols=",,,",]
+
+= Domain Connect 2.0
+
 |===========================================
-|Version 2.0 |Revision 40 |Feb-6-2018 |DRAFT
+|Version 2.0 |Revision {revnumber} |{revdate} |{revremark}
 |===========================================
+
+<<<
 
 Your use of this document and the contents therein is subject to the
 following license terms.
@@ -29,141 +39,42 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-[[contents]]
-Contents
---------
+<<<
 
-link:#introduction-and-background[1 Introduction and Background 5]
+toc::[]
 
-link:#terminology[1.1 Terminology 5]
-
-link:#problem-statement[1.2 Problem Statement 5]
-
-link:#goals[1.3 Goals 6]
-
-link:#templates[1.4 Templates 6]
-
-link:#summary[1.5 Summary 7]
-
-link:#protocol-overview-and-end-user-flows[2 Protocol Overview and End
-User Flows 7]
-
-link:#the-synchronous-flow[2.1 The Synchronous Flow 7]
-
-link:#the-asynchronous-flow[2.2 The Asynchronous Flow 10]
-
-link:#dns-provider-discovery[3 DNS Provider Discovery 10]
-
-link:#domain-connect-details[4 Domain Connect Details 12]
-
-link:#endpoints[4.1 Endpoints 12]
-
-link:#synchronous-flow[4.2 Synchronous Flow 13]
-
-link:#query-supported-template[4.2.1 Query Supported Template 13]
-
-link:#apply-template[4.2.2 Apply Template 13]
-
-link:#security-considerations[4.2.3 Security Considerations 16]
-
-link:#shared-templates[4.2.1 Shared Templates 17]
-
-link:#verification-of-changes[4.2.2 Verification of Changes 18]
-
-link:#_Toc499728878[4.3 Asynchronous Flow: OAuth 18]
-
-link:#oauth-flow-setup[4.3.1 OAuth Flow: Setup 18]
-
-link:#oauth-flow-getting-an-authorization-code[4.3.2 OAuth Flow: Getting
-an Authorization Code 19]
-
-link:#oauth-flow-requesting-an-access-token[4.3.3 OAuth Flow: Requesting
-an Access Token 21]
-
-link:#oauth-flow-making-requests-with-access-tokens[4.3.4 OAuth Flow:
-Making Requests with Access Tokens 22]
-
-link:#oauth-flow-apply-template-to-domain.[4.3.5 OAuth Flow: Apply
-Template to Domain. 22]
-
-link:#oauth-flow-revert-template[4.3.6 OAuth Flow: Revert Template 24]
-
-link:#oauth-flow-revoking-access[4.3.7 OAuth Flow: Revoking access 25]
-
-link:#domain-connect-objects-and-templates[5 Domain Connect Objects and
-Templates 25]
-
-link:#template-versioning[5.1 Template Versioning 25]
-
-link:#template-definition[5.2 Template Definition 25]
-
-link:#template-record[5.3 Template Record 26]
-
-link:#template-considerations[6 Template Considerations 28]
-
-link:#disclosure-of-changes-and-conflicts[6.1 Disclosure of Changes and
-Conflicts 28]
-
-link:#record-types-and-conflicts[6.2 Record Types and Conflicts 29]
-
-link:#template-scope[6.3 Template Scope 29]
-
-link:#variables-and-host-considerations[6.4 Variables and Host
-Considerations 29]
-
-link:#repository-and-integrity[6.5 Repository and Integrity 30]
-
-link:#extensionsexclusions[7 Extensions/Exclusions 31]
-
-link:#apexcname[7.1.1 APEXCNAME 31]
-
-link:#redirection[7.1.2 Redirection 31]
-
-link:#nameservers[7.1.3 Nameservers 32]
-
-link:#ds-dnssec[7.1.4 DS (DNSSEC) 32]
-
-link:#example-templates[8 Example Templates 32]
-
-[[introduction-and-background]]
-Introduction and Background
+Introduction and background
 ---------------------------
 
-GoDaddy recently implemented a feature called Domain Connect that
-simplified how Service Providers configured domains hosted at GoDaddy
-(the DNS Provider). This made the end to end experience considerably
-easier for the end user.
+GoDaddy recently implemented a feature called Domain Connect that simplified how Service Providers configured domains hosted at  GoDaddy (the DNS Provider). This made the end to end experience considerably easier for the end user. 
 
-Based on learnings from this implementation, an improved and more
-general version of this protocol was created. This document describes
-Domain Connect 2.0 and is shared with the intent of it becoming an open
-standard that can be utilized by multiple DNS Providers and Service
-Providers to simplify this interaction across the internet.
+Based on learnings from this implementation, an improved and more general version of this protocol was created. This document describes Domain Connect 2.0 and is shared with the intent of it becoming an open standard that can be utilized by multiple DNS Providers and Service Providers to simplify this interaction across the internet. 
 
+[glossary]
 [[terminology]]
 Terminology
 ~~~~~~~~~~~
 
-_Service Providers_ refers to entities that provide products and
+Service Providers:: refers to entities that provide products and
 services attached to domain names. Examples include web hosting
 providers (such as Wix or SquareSpace), email Service Providers (such as
 Microsoft or Google) and potentially even hardware manufacturers with
 DNS-enabled devices like home routers or automation controls (such as
 Linksys, Nest, and Philips).
 
-_DNS Providers_ refers to entities that provide DNS services such as
+DNS Providers:: refers to entities that provide DNS services such as
 registrars (such as GoDaddy or 1and1) or standalone DNS services (like
 CloudFlare).
 
-_Customer/User_ refers to the end-user of these services.
+Customer/User:: refers to the end-user of these services.
 
-_Templates/Service Templates_ refers to a file that describes a set of
+Templates/Service Templates:: refers to a file that describes a set of
 changes to DNS and domain functionality to enable a specific service.
 
-_Root Domain_ refers to a registered domain (e.g. example.com or
+Root Domain:: refers to a registered domain (e.g. example.com or
 example.co.uk) or a delegated zone in DNS.
 
-_Sub Domain_ refers to a sub-domain of a root domain (e.g.
+Sub Domain:: refers to a sub-domain of a root domain (e.g.
 sub.example.com or sub.example.co.uk).
 
 [[problem-statement]]
