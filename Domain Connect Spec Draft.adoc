@@ -1483,7 +1483,7 @@ Such a template might contain an A record of the form:
 [source,json]
 ----
 {
-	"type":  "A",
+	"type": "A",
 	"host": "%var%",
 	"pointsTo": "2.2.2.2",
 	"ttl": 1800
@@ -1630,8 +1630,8 @@ DNS Provider to determine if they will support.
 	"serviceId": "hosting",
 	"serviceName": "Wordpress by example.com",
 	"logoUrl": "https://www.example.com/images/billthecat.jpg",
-	"description": “This connects your domain to our super cool web hosting”,
-	"launchURL" : https://www.example.com/connectlaunch,
+	"description": "This connects your domain to our super cool web hosting",
+	"launchURL" : "https://www.example.com/connectlaunch",
 	"records": [
 		{
 			"groupId" : "service",
@@ -1754,7 +1754,7 @@ Now application of the following template:
 	{
 		"type":"TXT",
 		"host":"@",
-		"data":"\”v=spf1 a include: spf.hoster.com ~all\"",
+		"data":"\"v=spf1 a include: spf.hoster.com ~all\"",
 		"ttl":"1800"
 	}
 ]
