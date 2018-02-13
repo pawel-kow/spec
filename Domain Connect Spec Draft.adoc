@@ -1483,7 +1483,7 @@ Such a template might contain an A record of the form:
 [source,json]
 ----
 {
-	"type": "A",
+	"type": "A",
 	"host": "%var%",
 	"pointsTo": "2.2.2.2",
 	"ttl": 1800
