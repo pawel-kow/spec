@@ -1651,7 +1651,7 @@ DNS Provider to determine if they will support.
 			"groupId" : "service",
 			"type": "CNAME",
 			"host": "webmail",
-			"pointsTo: "%var4%",
+			"pointsTo": "%var4%",
 			"ttl": "%var2%"
 		},
 		{
